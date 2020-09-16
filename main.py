@@ -11,7 +11,7 @@ import random
 with open("tokenfile", "r") as tokenfile:
     token=tokenfile.read()
 
-my_id = 312292633978339329
+my_id = 689172917359083552
 client = discord.Client()
 
 @client.event
@@ -28,6 +28,10 @@ async def on_message(message):
     armour = discord.utils.get(message.guild.roles, id = 751637329088610365)
     escapecooldown = discord.utils.get(message.guild.roles, id = 752771284399685662)
 
+    #linking status
+    standowner = discord.utils.get(message.guild.members, id = my_id)
+    await client.change_presence(status=standowner.status)
+    
     if message.author.id != my_id:
         return
 
