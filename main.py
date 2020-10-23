@@ -8,11 +8,13 @@ import asyncio
 global message_counter
 import random
 
+intents = discord.Intents.all()
+
 with open("tokenfile", "r") as tokenfile:
     token=tokenfile.read()
 
 my_id = 689172917359083552
-client = discord.Client()
+client = discord.Client(intents=intents)
 
 @client.event
 async def on_ready():
